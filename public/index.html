@@ -2,37 +2,65 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="target-densitydpi=device-dpi" />
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <title>TimeSheet</title>
+    <meta name="description" content="" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script
+      type="text/javascript"
+      src="assets/scripts/main/modernizr-2.6.2.min.js"
+    ></script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <footer class="footer">
+      <div class="wrapper">
+        <ul>
+          <li>
+            <span>Copyright. VegaITSourcing All rights reserved</span>
+          </li>
+        </ul>
+        <ul class="right">
+          <li>
+            <a href="javascript:;">Terms of service</a>
+          </li>
+          <li>
+            <a href="javascript:;" class="last">Privacy policy</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+    
+    <!-- javascript -->
+    <script
+      type="text/javascript"
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"
+    ></script>
+    <script type="text/javascript">
+      window.jQuery ||
+        document.write(
+          "<script src='assets/scripts/main/jquery-1.8.3.min.js'>\x3C/script>"
+        );
+    </script>
+    <script
+      type="text/javascript"
+      src="assets/scripts/main/default.js"
+    ></script>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <!--[if lt IE 7
+      ]><p class="chromeframe">
+        Your browser is <em>ancient!</em>
+        <a href="http://browsehappy.com/">Upgrade to a different browser</a> or
+        <a href="http://www.google.com/chromeframe/?redirect=true"
+          >install Google Chrome Frame</a
+        >
+        to experience this site.
+      </p><!
+    [endif]-->
   </body>
 </html>
