@@ -21,7 +21,7 @@
 
 	//fancybox 
 	if ($('.new-member-popup').length) {
-		$('.new-member-popup').fancybox();
+		// $('.new-member-popup').fancybox();
 	}
 
 	// var headerHeight = $('header').height(),

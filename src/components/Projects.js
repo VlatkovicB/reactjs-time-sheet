@@ -5,12 +5,14 @@ class Projects extends React.Component {
     super(props);
     this.state = {};
   }
+
   render() {
     return (
       <div className="wrapper">
         <section className="content">
           <h2>
-            <i className="ico projects" />Projects
+            <i className="ico projects" />
+            Projects
           </h2>
           <div className="grey-box-wrap reports">
             <a href="#new-member" className="link new-member-popup">

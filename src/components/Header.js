@@ -1,8 +1,8 @@
 import React from "react";
 import UserMenu from "./UserMenu";
-import TimeSheet from "./TimeSheet";
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
+import Footer from "./Footer";
 import logo from "../logo.png";
 
 const Header = () => {

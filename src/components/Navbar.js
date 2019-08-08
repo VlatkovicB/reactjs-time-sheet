@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect, Route, NavLink, Switch } from "react-router-dom";
+import { Route, NavLink, Switch } from "react-router-dom";
 import TimeSheet from "./TimeSheet";
 import Clients from "./Clients";
 import Projects from "./Projects";
@@ -9,7 +9,7 @@ import Reports from "./Reports";
 
 const Navbar = () => {
   return (
-    <Switch>
+    <div>
       <nav>
         <ul className="menu">
           <li>
@@ -45,14 +45,16 @@ const Navbar = () => {
         </ul>
         <span className="line" />
 
-        <Route path="/" exact component={TimeSheet} />
-        <Route path="/clients" component={Clients} />
-        <Route path="/projects" component={Projects} />
-        <Route path="/categories" component={Categories} />
-        <Route path="/teammembers" component={TeamMembers} />
-        <Route path="/reports" component={Reports} />
+        <Switch>
+          <Route path="/" exact component={TimeSheet} />
+          <Route path="/clients" component={Clients} />
+          <Route path="/projects" component={Projects} />
+          <Route path="/categories" component={Categories} />
+          <Route path="/teammembers" component={TeamMembers} />
+          <Route path="/reports" component={Reports} />
+        </Switch>
       </nav>
-    </Switch>
+    </div>
   );
 };
 
