@@ -9,34 +9,7 @@
     <title>TimeSheet</title>
     <meta name="description" content="" />
 
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <script
-      type="text/javascript"
-      src="assets/scripts/main/modernizr-2.6.2.min.js"
-    ></script>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <footer class="footer">
-      <div class="wrapper">
-        <ul>
-          <li>
-            <span>Copyright. VegaITSourcing All rights reserved</span>
-          </li>
-        </ul>
-        <ul class="right">
-          <li>
-            <a href="javascript:;">Terms of service</a>
-          </li>
-          <li>
-            <a href="javascript:;" class="last">Privacy policy</a>
-          </li>
-        </ul>
-      </div>
-    </footer>
-    
-    <!-- javascript -->
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/style.css" />
     <script
       type="text/javascript"
       src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"
@@ -44,13 +17,31 @@
     <script type="text/javascript">
       window.jQuery ||
         document.write(
-          "<script src='assets/scripts/main/jquery-1.8.3.min.js'>\x3C/script>"
+          "<script src='%PUBLIC_URL%/assets/scripts/main/jquery-1.8.3.min.js'>\x3C/script>"
         );
     </script>
     <script
       type="text/javascript"
-      src="assets/scripts/main/default.js"
+      src="%PUBLIC_URL%/assets/scripts/main/modernizr-2.6.2.min.js"
     ></script>
+    <script
+      type="text/javascript"
+      src="%PUBLIC_URL%/assets/scripts/main/default.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="%PUBLIC_URL%/assets/scripts/main/accordion.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="%PUBLIC_URL%/assets/scripts/libs/jquery.fancybox.js"
+    ></script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+
+    <!-- javascript -->
 
     <!--[if lt IE 7
       ]><p class="chromeframe">
