@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class TimeSheet extends React.Component {
   constructor(props) {
@@ -54,9 +55,9 @@ class TimeSheet extends React.Component {
                   <span>28.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>7.5</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="positive previous">
@@ -64,9 +65,9 @@ class TimeSheet extends React.Component {
                   <span>29.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>7.5</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="positive previous">
@@ -74,9 +75,9 @@ class TimeSheet extends React.Component {
                   <span>30.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>7.5</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="positive previous">
@@ -84,9 +85,9 @@ class TimeSheet extends React.Component {
                   <span>31.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>7.5</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="positive">
@@ -94,9 +95,9 @@ class TimeSheet extends React.Component {
                   <span>1.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>7.5</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td>
@@ -104,9 +105,9 @@ class TimeSheet extends React.Component {
                   <span>2.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>0</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td>
@@ -114,9 +115,9 @@ class TimeSheet extends React.Component {
                   <span>3.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>0</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
             </tr>
@@ -126,9 +127,9 @@ class TimeSheet extends React.Component {
                   <span>4.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>7.5</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="positive">
@@ -136,9 +137,9 @@ class TimeSheet extends React.Component {
                   <span>5.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>7.5</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="positive">
@@ -146,9 +147,9 @@ class TimeSheet extends React.Component {
                   <span>6.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>7.5</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="positive">
@@ -156,9 +157,9 @@ class TimeSheet extends React.Component {
                   <span>7.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>7.5</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="positive">
@@ -166,9 +167,9 @@ class TimeSheet extends React.Component {
                   <span>8.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>7.5</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td>
@@ -176,9 +177,9 @@ class TimeSheet extends React.Component {
                   <span>9.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>0</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td>
@@ -186,9 +187,9 @@ class TimeSheet extends React.Component {
                   <span>10.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>0</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
             </tr>
@@ -198,9 +199,9 @@ class TimeSheet extends React.Component {
                   <span>11.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>7.5</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="positive">
@@ -208,9 +209,9 @@ class TimeSheet extends React.Component {
                   <span>12.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>7.5</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="positive">
@@ -218,9 +219,9 @@ class TimeSheet extends React.Component {
                   <span>13.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>7.5</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="positive">
@@ -228,9 +229,9 @@ class TimeSheet extends React.Component {
                   <span>14.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>7.5</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="positive">
@@ -238,9 +239,9 @@ class TimeSheet extends React.Component {
                   <span>15.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>7.5</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td>
@@ -248,9 +249,9 @@ class TimeSheet extends React.Component {
                   <span>16.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>0</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td>
@@ -258,9 +259,9 @@ class TimeSheet extends React.Component {
                   <span>17.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>0</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
             </tr>
@@ -270,9 +271,9 @@ class TimeSheet extends React.Component {
                   <span>18.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>4</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td>
@@ -280,9 +281,9 @@ class TimeSheet extends React.Component {
                   <span>19.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>0</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="positive">
@@ -290,9 +291,9 @@ class TimeSheet extends React.Component {
                   <span>20.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>7.5</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td>
@@ -300,9 +301,9 @@ class TimeSheet extends React.Component {
                   <span>21.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>0</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="disable">
@@ -310,9 +311,9 @@ class TimeSheet extends React.Component {
                   <span>22.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>0</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="disable">
@@ -320,9 +321,9 @@ class TimeSheet extends React.Component {
                   <span>23.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>0</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="disable">
@@ -330,9 +331,9 @@ class TimeSheet extends React.Component {
                   <span>24.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>0</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
             </tr>
@@ -342,9 +343,9 @@ class TimeSheet extends React.Component {
                   <span>25.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>0</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="disable">
@@ -352,9 +353,9 @@ class TimeSheet extends React.Component {
                   <span>26.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>0</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="disable">
@@ -362,9 +363,9 @@ class TimeSheet extends React.Component {
                   <span>27.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>0</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="disable">
@@ -372,9 +373,9 @@ class TimeSheet extends React.Component {
                   <span>28.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>0</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="disable">
@@ -382,9 +383,9 @@ class TimeSheet extends React.Component {
                   <span>1.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>0</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="disable">
@@ -392,9 +393,9 @@ class TimeSheet extends React.Component {
                   <span>2.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>0</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
               <td className="disable">
@@ -402,9 +403,9 @@ class TimeSheet extends React.Component {
                   <span>3.</span>
                 </div>
                 <div className="hours">
-                  <a href="days.html">
+                  <Link to="/days">
                     Hours: <span>0</span>
-                  </a>
+                  </Link>
                 </div>
               </td>
             </tr>

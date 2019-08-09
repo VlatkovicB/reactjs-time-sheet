@@ -1,5 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
 import Client from "./Client";
+
 
 const Clients = props => {
   return (
@@ -136,99 +138,13 @@ const Clients = props => {
           </ul>
         </div>
         <div className="accordion-wrap clients">
-          <Client />
-          <div className="item">
-            <div className="heading">
-              <span>Clockwork</span>
-              <i>+</i>
-            </div>
-            <div className="details">
-              <ul className="form">
-                <li>
-                  <label>Client name:</label>
-                  <input type="text" className="in-text" />
-                </li>
-                <li>
-                  <label>Zip/Postal code:</label>
-                  <input type="text" className="in-text" />
-                </li>
-              </ul>
-              <ul className="form">
-                <li>
-                  <label>Address:</label>
-                  <input type="text" className="in-text" />
-                </li>
-                <li>
-                  <label>Country:</label>
-                  <select>
-                    <option>Select country</option>
-                  </select>
-                </li>
-              </ul>
-              <ul className="form last">
-                <li>
-                  <label>City:</label>
-                  <input type="text" className="in-text" />
-                </li>
-              </ul>
-              <div className="buttons">
-                <div className="inner">
-                  <a href="javascript:;" className="btn green">
-                    Save
-                  </a>
-                  <a href="javascript:;" className="btn red">
-                    Delete
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="item">
-            <div className="heading">
-              <span>Emperor Design</span>
-              <i>+</i>
-            </div>
-            <div className="details">
-              <ul className="form">
-                <li>
-                  <label>Client name:</label>
-                  <input type="text" className="in-text" />
-                </li>
-                <li>
-                  <label>Zip/Postal code:</label>
-                  <input type="text" className="in-text" />
-                </li>
-              </ul>
-              <ul className="form">
-                <li>
-                  <label>Address:</label>
-                  <input type="text" className="in-text" />
-                </li>
-                <li>
-                  <label>Country:</label>
-                  <select>
-                    <option>Select country</option>
-                  </select>
-                </li>
-              </ul>
-              <ul className="form last">
-                <li>
-                  <label>City:</label>
-                  <input type="text" className="in-text" />
-                </li>
-              </ul>
-              <div className="buttons">
-                <div className="inner">
-                  <a href="javascript:;" className="btn green">
-                    Save
-                  </a>
-                  <a href="javascript:;" className="btn red">
-                    Delete
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+          {props.clients.map(client => {
+            return (
+              <li key={client.id}>
+                <Client client={client} />
+              </li>
+            );
+          })}
         </div>
         <div className="pagination">
           <ul>
@@ -251,4 +167,10 @@ const Clients = props => {
   );
 };
 
-export default Clients;
+const mapStateToProps = state => {
+  return {
+    clients: state.clients
+  };
+};
+
+export default connect(mapStateToProps)(Clients);

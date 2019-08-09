@@ -1,9 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import logo from "../logo.png";
 import UserMenu from "./UserMenu";
 import Navbar from "./Navbar";
-import { Link } from "react-router-dom";
-import Footer from "./Footer";
-import logo from "../logo.png";
 
 const Header = () => {
   return (

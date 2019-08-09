@@ -1,38 +1,63 @@
 import React from "react";
+import { connect } from "react-redux";
 
 class Client extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+
+    this.state = { open: false };
   }
 
+  toggleVisible = () => {
+    this.setState(prevState => ({
+      open: !prevState.open
+    }));
+  };
+
   render() {
+    const { open } = this.state;
+    const client = this.props.client;
+    const countries = this.props.countries;
+
     return (
       <div className="item">
-        <div className="heading">
-          <span>ADAM Software NV</span>
+        <div className="heading" onClick={this.toggleVisible}>
+          <span>{client.name}</span>
           <i>+</i>
         </div>
-        <div className="details">
+        <div className="details" style={{ display: open ? "block" : "none" }}>
           <ul className="form">
             <li>
               <label>Client name:</label>
-              <input type="text" className="in-text" />
+              <input type="text" className="in-text" value={client.name} />
             </li>
             <li>
               <label>Zip/Postal code:</label>
-              <input type="text" className="in-text" />
+              <input
+                type="text"
+                className="in-text"
+                value={client.postalCode ? client.postalCode : ""}
+              />
             </li>
           </ul>
           <ul className="form">
             <li>
               <label>Address:</label>
-              <input type="text" className="in-text" />
+              <input
+                type="text"
+                className="in-text"
+                value={client.address ? client.address : ""}
+              />
             </li>
             <li>
               <label>Country:</label>
               <select>
+                {/* {countries.filter(country => country.id === client.countryId)} */}
+
                 <option>Select country</option>
+                {countries.map(country => (
+                  <option key={country.id}>{country.name}</option>
+                ))}
               </select>
             </li>
           </ul>
@@ -58,4 +83,10 @@ class Client extends React.Component {
   }
 }
 
-export default Client;
+const mapStateToProps = state => {
+  return {
+    countries: state.countries
+  };
+};
+
+export default connect(mapStateToProps)(Client);

@@ -41,22 +41,22 @@ class TeamMembers extends React.Component {
                 <li className="inline">
                   <label>Status:</label>
                   <span className="radio">
-                    <label for="inactive">Inactive:</label>
+                    <label htmlFor="inactive">Inactive:</label>
                     <input type="radio" value="1" name="status" id="inactive" />
                   </span>
                   <span className="radio">
-                    <label for="active">Active:</label>
+                    <label htmlFor="active">Active:</label>
                     <input type="radio" value="2" name="status" id="active" />
                   </span>
                 </li>
                 <li className="inline">
                   <label>Role:</label>
                   <span className="radio">
-                    <label for="admin">Admin:</label>
+                    <label htmlFor="admin">Admin:</label>
                     <input type="radio" value="1" name="status" id="admin" />
                   </span>
                   <span className="radio">
-                    <label for="worker">Worker:</label>
+                    <label htmlFor="worker">Worker:</label>
                     <input type="radio" value="2" name="status" id="worker" />
                   </span>
                 </li>
@@ -101,7 +101,7 @@ class TeamMembers extends React.Component {
                   <li>
                     <label>Status:</label>
                     <span className="radio">
-                      <label for="inactive">Inactive:</label>
+                      <label htmlFor="inactive">Inactive:</label>
                       <input
                         type="radio"
                         value="1"
@@ -110,18 +110,18 @@ class TeamMembers extends React.Component {
                       />
                     </span>
                     <span className="radio">
-                      <label for="active">Active:</label>
+                      <label htmlFor="active">Active:</label>
                       <input type="radio" value="2" name="status" id="active" />
                     </span>
                   </li>
                   <li>
                     <label>Role:</label>
                     <span className="radio">
-                      <label for="admin">Admin:</label>
+                      <label htmlFor="admin">Admin:</label>
                       <input type="radio" value="1" name="status" id="admin" />
                     </span>
                     <span className="radio">
-                      <label for="worker">Worker:</label>
+                      <label htmlFor="worker">Worker:</label>
                       <input type="radio" value="2" name="status" id="worker" />
                     </span>
                   </li>
@@ -171,7 +171,7 @@ class TeamMembers extends React.Component {
                   <li>
                     <label>Status:</label>
                     <span className="radio">
-                      <label for="inactive">Inactive:</label>
+                      <label htmlFor="inactive">Inactive:</label>
                       <input
                         type="radio"
                         value="1"
@@ -180,18 +180,18 @@ class TeamMembers extends React.Component {
                       />
                     </span>
                     <span className="radio">
-                      <label for="active">Active:</label>
+                      <label htmlFor="active">Active:</label>
                       <input type="radio" value="2" name="status" id="active" />
                     </span>
                   </li>
                   <li>
                     <label>Role:</label>
                     <span className="radio">
-                      <label for="admin">Admin:</label>
+                      <label htmlFor="admin">Admin:</label>
                       <input type="radio" value="1" name="role" id="admin" />
                     </span>
                     <span className="radio">
-                      <label for="worker">Worker:</label>
+                      <label htmlFor="worker">Worker:</label>
                       <input type="radio" value="2" name="role" id="worker" />
                     </span>
                   </li>
