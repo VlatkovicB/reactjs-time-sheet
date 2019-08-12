@@ -23,8 +23,8 @@ export const addClient = (
       countryId: clientData.countryId
     };
 
-    return axios.post("clients", client).then(result => {
-      dispatch(_addClient(result.data));
+    return axios.post("clients", client).then(response => {
+      dispatch(_addClient(response.data));
     });
   };
 };
@@ -36,9 +36,68 @@ const _getClients = clients => ({
 
 export const getClients = () => {
   return dispatch => {
-    return axios.get("clients").then(result => {
+    return axios.get("clients").then(response => {
       const clients = [];
-      result.data.forEach(client => {
+      response.data.forEach(client => {
+        clients.push(client);
+      });
+      dispatch(_getClients(clients));
+    });
+  };
+};
+
+const _updateClient = (client, status) => ({
+  type: "UPDATE_CLIENT",
+  status,
+  client
+});
+
+export const updateClient = client => {
+  return dispatch => {
+    return axios
+      .put("clients", client)
+      .then(response => {
+        if (response.status === 204) {
+          dispatch(_updateClient(client, "success"));
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+};
+
+const _deleteClient = id => ({
+  type: "DELETE_CLIENT",
+  id
+});
+
+export const deleteClient = id => {
+  return dispatch => {
+    return axios.delete("clients/" + id).then(() => {
+      dispatch(_deleteClient(id));
+    });
+  };
+};
+
+export const filterClientsByKeyword = keyword => {
+  return dispatch => {
+    return axios.get("clients?keyword=" + keyword).then(response => {
+      const clients = [];
+      response.data.forEach(client => {
+        clients.push(client);
+      });
+      console.log(clients);
+      dispatch(_getClients(clients));
+    });
+  };
+};
+
+export const filterClientsByLetter = letter => {
+  return dispatch => {
+    return axios.get("clients?letter=" + letter).then(response => {
+      const clients = [];
+      response.data.forEach(client => {
         clients.push(client);
       });
       dispatch(_getClients(clients));

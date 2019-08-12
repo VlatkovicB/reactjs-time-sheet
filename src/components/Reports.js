@@ -10,7 +10,8 @@ class Reports extends React.Component {
       <div className="wrapper">
         <section className="content">
           <h2>
-            <i className="ico report" />Reports
+            <i className="ico report" />
+            Reports
           </h2>
           <div className="grey-box-wrap reports">
             <ul className="form">
@@ -103,10 +104,10 @@ class Reports extends React.Component {
             <div className="btns-inner">
               <a href="javascript:;" className="btn white">
                 <span>Print report</span>
-              </a>
+              </a>{" "}
               <a href="javascript:;" className="btn white">
                 <span>Create PDF</span>
-              </a>
+              </a>{" "}
               <a href="javascript:;" className="btn white">
                 <span>Export to excel</span>
               </a>

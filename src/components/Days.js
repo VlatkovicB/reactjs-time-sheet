@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Days = () => {
   return (
     <div class="wrapper">
       <section class="content">
         <h2>
-          <i class="ico timesheet">TimeSheet</i>
+          <i class="ico timesheet" />TimeSheet
         </h2>
         <div class="grey-box-wrap">
           <div class="top">
@@ -317,10 +318,10 @@ const Days = () => {
         </table>
 
         <div class="total">
-          <a href="index.html">
+          <Link to="/">
             <i />
             back to monthly view
-          </a>
+          </Link>
           <span>
             Total hours: <em>7.5</em>
           </span>

@@ -6,21 +6,12 @@ class UserMenu extends React.Component {
     this.state = { invisible: true };
   }
 
-  toggleVisibility = () => {
-    this.setState(prevState => ({
-      invisible: !prevState.invisible
-    }));
-  };
-
   render() {
-    console.log(this.state.invisible);
     return (
       <ul className="user right">
         <li>
-          <a href="#" onMouseOver={this.toggleVisibility}>
-            Sladjana Miljanovic
-          </a>
-          <div className={this.state.invisible ? "invisble" : ""} />
+          <a href="#">Sladjana Miljanovic</a>
+          <div className="invisible" />
           <div className="user-menu">
             <ul>
               <li>

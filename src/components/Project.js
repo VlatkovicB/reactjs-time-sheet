@@ -74,7 +74,7 @@ class Project extends React.Component {
             <div className="inner">
               <a href="javascript:;" className="btn green">
                 Save
-              </a>
+              </a>{" "}
               <a href="javascript:;" className="btn red">
                 Delete
               </a>
