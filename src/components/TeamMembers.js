@@ -63,7 +63,7 @@ class TeamMembers extends React.Component {
               </ul>
               <div className="buttons">
                 <div className="inner">
-                  <a href="#" className="btn green">
+                  <a href="!#" className="btn green">
                     Invite team member
                   </a>
                 </div>
@@ -128,13 +128,13 @@ class TeamMembers extends React.Component {
                 </ul>
                 <div className="buttons">
                   <div className="inner">
-                    <a href="#" className="btn green">
+                    <a href="!#" className="btn green">
                       Save
                     </a>
-                    <a href="#" className="btn red">
+                    <a href="!#" className="btn red">
                       Delete
                     </a>
-                    <a href="#" className="btn orange">
+                    <a href="!#" className="btn orange">
                       Reset Password
                     </a>
                   </div>
@@ -198,13 +198,13 @@ class TeamMembers extends React.Component {
                 </ul>
                 <div className="buttons">
                   <div className="inner">
-                    <a href="#" className="btn orange">
+                    <a href="!#" className="btn orange">
                       Save
                     </a>
-                    <a href="#" className="btn orange">
+                    <a href="!#" className="btn orange">
                       Delete
                     </a>
-                    <a href="#" className="btn orange">
+                    <a href="!#" className="btn orange">
                       Reset Password
                     </a>
                   </div>
@@ -215,16 +215,16 @@ class TeamMembers extends React.Component {
           <div className="pagination">
             <ul>
               <li>
-                <a href="#">1</a>
+                <a href="!#">1</a>
               </li>
               <li>
-                <a href="#">2</a>
+                <a href="!#">2</a>
               </li>
               <li>
-                <a href="#">3</a>
+                <a href="!#">3</a>
               </li>
               <li className="last">
-                <a href="#">Next</a>
+                <a href="!#">Next</a>
               </li>
             </ul>
           </div>

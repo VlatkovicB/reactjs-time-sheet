@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import queryString from "query-string";
 
 import {
   filterClientsByKeyword,
@@ -8,23 +9,29 @@ import {
 } from "../redux/actions/clientsActions";
 import Client from "./Client";
 import Filter from "./Filter";
+import Modal from "./Modal";
 
 class Clients extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { clients: this.props.clients };
+    this.state = { clients: this.props.clients, open: false };
     this.props.getClients();
     this.timer = null;
   }
 
   componentDidMount() {
-    if (this.props.match.params.letter) {
-      this.props.filterClientsByLetter(this.props.match.params.letter);
+    const values = queryString.parse(this.props.location.search);
+    if (values.letter) {
+      this.props.filterClientsByLetter(values.letter);
+    } else if (values.search) {
+      this.props.filterClientsByKeyword(values.search);
     } else {
       this.setState({
         clients: this.props.clients
       });
     }
+
+    window.jQuery(".new-member-popup").fancybox();
   }
 
   componentDidUpdate() {
@@ -51,7 +58,7 @@ class Clients extends React.Component {
     if (word.length > 1) {
       this.timer = setTimeout(() => {
         this.props.filterClientsByKeyword(e.target.value);
-      }, 2000);
+      }, 1500);
     } else if (word.length < 1) {
       this.props.getClients();
     }
@@ -70,7 +77,12 @@ class Clients extends React.Component {
             Clients
           </h2>
           <div className="grey-box-wrap reports">
-            <a href="#new-member" className="link new-member-popup">
+            <a
+              data-src="#new-member"
+              href="#new-member"
+              data-fancybox
+              className="link new-member-popup"
+            >
               Create new client
             </a>
             <div className="search-page">
@@ -87,38 +99,7 @@ class Clients extends React.Component {
           </div>
           <div className="new-member-wrap">
             <div id="new-member" className="new-member-inner">
-              <h2>Create new client</h2>
-              <ul className="form">
-                <li>
-                  <label>Client name:</label>
-                  <input type="text" className="in-text" />
-                </li>
-                <li>
-                  <label>Address:</label>
-                  <input type="text" className="in-text" />
-                </li>
-                <li>
-                  <label>City:</label>
-                  <input type="text" className="in-text" />
-                </li>
-                <li>
-                  <label>Zip/Postal code:</label>
-                  <input type="text" className="in-text" />
-                </li>
-                <li>
-                  <label>Country:</label>
-                  <select>
-                    <option>Select country</option>
-                  </select>
-                </li>
-              </ul>
-              <div className="buttons">
-                <div className="inner">
-                  <a href="javascript:;" className="btn green">
-                    Save
-                  </a>
-                </div>
-              </div>
+              <Modal />
             </div>
           </div>
           <Filter />
@@ -127,16 +108,16 @@ class Clients extends React.Component {
           <div className="pagination">
             <ul>
               <li>
-                <a href="javascript:;">1</a>
+                <a href="!#">1</a>
               </li>
               <li>
-                <a href="javascript:;">2</a>
+                <a href="!#">2</a>
               </li>
               <li>
-                <a href="javascript:;">3</a>
+                <a href="!#">3</a>
               </li>
               <li className="last">
-                <a href="javascript:;">Next</a>
+                <a href="!#">Next</a>
               </li>
             </ul>
           </div>

@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "jqeury": "0.0.1-security",
+    "jquery-1.8": "^1.8.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",

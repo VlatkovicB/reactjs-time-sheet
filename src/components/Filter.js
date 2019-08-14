@@ -5,7 +5,7 @@ import {
   getClients
 } from "../redux/actions/clientsActions";
 import $ from "jquery";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
 class Filter extends React.Component {
   constructor(props) {
@@ -55,7 +55,7 @@ class Filter extends React.Component {
               id={"letter" + letter}
             >
               <Link
-                to={"/clients/" + letter}
+                to={"/clients/?letter=" + letter}
                 onClick={this.handleClick}
                 value={letter}
               >

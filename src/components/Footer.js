@@ -11,10 +11,10 @@ const Footer = () => {
         </ul>
         <ul className="right">
           <li>
-            <a href="#">Terms of service</a>
+            <a href="!#">Terms of service</a>
           </li>
           <li>
-            <a href="#" className="last">
+            <a href="!#" className="last">
               Privacy policy
             </a>
           </li>

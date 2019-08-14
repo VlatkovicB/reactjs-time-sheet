@@ -52,10 +52,10 @@ class Reports extends React.Component {
                 <input type="text" className="in-text datepicker" />
               </li>
               <li>
-                <a href="javascript:;" className="btn orange right">
+                <a href="!#" className="btn orange right">
                   Reset
                 </a>
-                <a href="javascript:;" className="btn green right">
+                <a href="!#" className="btn green right">
                   Search
                 </a>
               </li>
@@ -102,13 +102,13 @@ class Reports extends React.Component {
           </div>
           <div className="grey-box-wrap reports">
             <div className="btns-inner">
-              <a href="javascript:;" className="btn white">
+              <a href="!#" className="btn white">
                 <span>Print report</span>
               </a>{" "}
-              <a href="javascript:;" className="btn white">
+              <a href="!#" className="btn white">
                 <span>Create PDF</span>
               </a>{" "}
-              <a href="javascript:;" className="btn white">
+              <a href="!#" className="btn white">
                 <span>Export to excel</span>
               </a>
             </div>

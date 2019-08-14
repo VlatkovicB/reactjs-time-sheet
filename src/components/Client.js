@@ -61,7 +61,7 @@ class Client extends React.Component {
     let clientWindow = $("#client" + this.state.id);
     clientWindow.slideUp();
 
-    setTimeout(() => this.props.deleteClient(this.state.id), 300);
+    setTimeout(() => this.props.deleteClient(this.state.id), 400);
   };
 
   render() {
@@ -138,10 +138,10 @@ class Client extends React.Component {
           </ul>
           <div className="buttons">
             <div className="inner">
-              <a href="#" className="btn green" onClick={this.handleSubmit}>
+              <a href="javascript:;" className="btn green" onClick={this.handleSubmit}>
                 Save
               </a>{" "}
-              <a href="#" className="btn red" onClick={this.handleDelete}>
+              <a href="javascript:;" className="btn red" onClick={this.handleDelete}>
                 Delete
               </a>
             </div>

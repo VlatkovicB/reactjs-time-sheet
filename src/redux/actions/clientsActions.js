@@ -87,7 +87,6 @@ export const filterClientsByKeyword = keyword => {
       response.data.forEach(client => {
         clients.push(client);
       });
-      console.log(clients);
       dispatch(_getClients(clients));
     });
   };

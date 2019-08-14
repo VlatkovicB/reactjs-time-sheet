@@ -16,12 +16,12 @@ class TimeSheet extends React.Component {
           </h2>
           <div className="grey-box-wrap">
             <div className="top">
-              <a href="javascript:;" className="prev">
+              <a href="!#" className="prev">
                 <i className="zmdi zmdi-chevron-left" />
                 previous month
               </a>
               <span className="center">February, 2013</span>
-              <a href="javascript:;" className="next">
+              <a href="!#" className="next">
                 next month
                 <i className="zmdi zmdi-chevron-right" />
               </a>

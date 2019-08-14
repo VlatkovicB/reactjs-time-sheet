@@ -10,12 +10,12 @@ const Days = () => {
         </h2>
         <div class="grey-box-wrap">
           <div class="top">
-            <a href="javascript:;" class="prev">
+            <a href="!#" class="prev">
               <i class="zmdi zmdi-chevron-left" />
               previous week
             </a>
             <span class="center">February 04 - February 10, 2013 (week 6)</span>
-            <a href="javascript:;" class="next">
+            <a href="!#" class="next">
               next week
               <i class="zmdi zmdi-chevron-right" />
             </a>
@@ -23,49 +23,49 @@ const Days = () => {
           <div class="bottom">
             <ul class="days">
               <li>
-                <a href="javascript:;">
+                <a href="!#">
                   <b>Feb 04</b>
                   <p>7.5</p>
                   <span>monday</span>
                 </a>
               </li>
               <li>
-                <a href="javascript:;">
+                <a href="!#">
                   <b>Feb 06</b>
                   <p>7.5</p>
                   <span>tuesday</span>
                 </a>
               </li>
               <li>
-                <a href="javascript:;">
+                <a href="!#">
                   <b>Feb 06</b>
                   <p>7.5</p>
                   <span>wednesday</span>
                 </a>
               </li>
               <li class="active">
-                <a href="javascript:;">
+                <a href="!#">
                   <b>Feb 07</b>
                   <p>7.5</p>
                   <span>thursday</span>
                 </a>
               </li>
               <li>
-                <a href="javascript:;">
+                <a href="!#">
                   <b>Feb 08</b>
                   <p>7.5</p>
                   <span>friday</span>
                 </a>
               </li>
               <li>
-                <a href="javascript:;">
+                <a href="!#">
                   <b>Feb 09</b>
                   <p>0.0</p>
                   <span>saturday</span>
                 </a>
               </li>
               <li class="last">
-                <a href="javascript:;">
+                <a href="!#">
                   <b>Feb 10</b>
                   <p>0.0</p>
                   <span>sunday</span>
