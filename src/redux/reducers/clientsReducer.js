@@ -7,12 +7,9 @@ export default (state = clientsReducerDefaultState, action) => {
     case "DELETE_CLIENT":
       return state.filter(client => client.id !== action.id);
     case "UPDATE_CLIENT":
-      if (action.status === "success") {
-        return state.map(client => {
-          return client.id === action.client.id ? action.client : client;
-        });
-      }
-      return action.client;
+      return state.map(client => {
+        return client.id === action.client.id ? action.client : client;
+      });
     case "GET_CLIENTS":
       return action.clients;
     default:

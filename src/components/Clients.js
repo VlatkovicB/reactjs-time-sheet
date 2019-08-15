@@ -7,6 +7,7 @@ import {
   filterClientsByLetter,
   getClients
 } from "../redux/actions/clientsActions";
+import { getCountries } from "../redux/actions/countriesActions";
 import Client from "./Client";
 import Filter from "./Filter";
 import Modal from "./Modal";
@@ -14,23 +15,22 @@ import Modal from "./Modal";
 class Clients extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { clients: this.props.clients, open: false };
-    this.props.getClients();
+    this.state = { searchAvailable: true, clients: this.props.clients };
     this.timer = null;
   }
 
   componentDidMount() {
+    // places all query strings in one array
     const values = queryString.parse(this.props.location.search);
+    // checks if there is letter is entered or if user used search
     if (values.letter) {
       this.props.filterClientsByLetter(values.letter);
     } else if (values.search) {
       this.props.filterClientsByKeyword(values.search);
-    } else {
-      this.setState({
-        clients: this.props.clients
-      });
     }
-
+    this.props.getClients();
+    this.props.getCountries();
+    // Enables fancybox window for NewUser Modal
     window.jQuery(".new-member-popup").fancybox();
   }
 
@@ -40,26 +40,40 @@ class Clients extends React.Component {
     }
   }
 
-  filterClients = e => {
+  // Clears timer from handleSearchOnChange and instantly searches when enter is pressed
+  searchClients = e => {
     clearTimeout(this.timer);
     let keyword = e.target.value;
+    let searchAvailable = this.state.searchAvailable;
+
     if (e.charCode === 13) {
-      if (keyword !== "" && keyword.length > 1) {
+      if (keyword !== "" && keyword.length > 1 && searchAvailable) {
         this.props.filterClientsByKeyword(keyword);
+
+        // Prevent spam enter search, time it out for 500ms
+        this.setState({ searchAvailable: false }, () => {
+          setTimeout(() => {
+            this.setState({ searchAvailable: true });
+          }, 500);
+        });
       }
     }
   };
 
-  handleFilterOnChange = e => {
+  // Filters after certain amount of time has passed since user last entered something
+  handleSearchOnChange = e => {
+    // clears current time if there is any running
     clearTimeout(this.timer);
     e.persist();
 
     let word = e.target.value;
     if (word.length > 1) {
+      // sets timeout of 1.5s which searches by currently entered keyword
       this.timer = setTimeout(() => {
         this.props.filterClientsByKeyword(e.target.value);
       }, 1500);
     } else if (word.length < 1) {
+      // if user deletes everything loads all clients
       this.props.getClients();
     }
   };
@@ -91,8 +105,8 @@ class Clients extends React.Component {
                 type="search"
                 name="search-clients"
                 className="in-search"
-                onKeyPress={this.filterClients}
-                onChange={this.handleFilterOnChange}
+                onKeyPress={this.searchClients}
+                onChange={this.handleSearchOnChange}
                 placeholder="Search"
               />
             </div>
@@ -135,5 +149,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { filterClientsByKeyword, filterClientsByLetter, getClients }
+  { filterClientsByKeyword, filterClientsByLetter, getClients, getCountries }
 )(Clients);

@@ -5,13 +5,27 @@ import { addClient } from "../redux/actions/clientsActions";
 class Modal extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
+      clickable: true,
+      error: false,
+      errorMessage: "",
+      nameError: false,
       name: "",
       address: "",
       city: "",
       postalCode: "",
       countryId: 0
     };
+  }
+
+  componentDidMount() {
+    // default value for countryId is guaranteed existing country id
+    // first entry in database is  {id: , name: 'Select Country'}
+    this.setState({
+      countryId:
+        this.props.countries.length > 0 ? this.props.countries[0].id : 1
+    });
   }
 
   handleSubmit = () => {
@@ -23,40 +37,108 @@ class Modal extends React.Component {
       countryId: this.state.countryId
     };
 
-    this.props.addClient(client);
-    // catch error and handle
+    this.setState({ clickable: false });
+
+    if (client.name.trim() === "") {
+      this.setState({
+        nameError: true,
+        error: true,
+        errorMessage: "Name must not be empty."
+      });
+    } else {
+      this.props
+        .addClient(client)
+        .then(() => {
+          // Closing modal window
+          window.jQuery.fancybox.close();
+          this.resetFields();
+        })
+        .catch(error => {
+          if (error.response) {
+            if (error.response.status === 400) {
+              this.setState({
+                nameError: true,
+                error: true,
+                errorMessage: "Name is not unique."
+              });
+            }
+          } else if (error.request) {
+            console.log(error);
+          }
+        });
+    }
+  };
+
+  // Reseting state to its default values
+  resetFields = () => {
     this.setState({
+      clickable: true,
+      nameError: false,
+      error: false,
+      errorMessage: "",
       name: "",
       address: "",
       city: "",
       postalCode: "",
-      countryId: 0
+      countryId: this.props.countries[0].id
     });
-    window.jQuery.fancybox.close();
   };
 
+  // Dynamic set state when one of the members changes
   handleChange = e => {
     let changedMember = e.target.name;
     let change = e.target.value;
 
-    this.setState(() => ({ [changedMember]: change }));
+    this.setState(() => ({
+      nameError: false,
+      error: false,
+      clickable: true,
+      [changedMember]: change
+    }));
   };
 
   render() {
     const countries = this.props.countries;
+    const style = {
+      color: "black",
+      backgroundColor: "#fbc2c4",
+      border: "black 1px solid",
+      padding: "3px",
+      textAlign: "center",
+      margin: "0 20%"
+    };
+    const errorMessage = this.state.error ? (
+      <div style={style}>{this.state.errorMessage}</div>
+    ) : (
+      <div />
+    );
+    const save = this.state.clickable ? (
+      <a href="javascript:;" className="btn green" onClick={this.handleSubmit}>
+        Save
+      </a>
+    ) : (
+      <a
+        href="javascript:;"
+        className="btn green"
+        onClick={e => e.preventDefault()}
+      >
+        Save
+      </a>
+    );
 
     return (
       <div>
         <h2>Create new client</h2>
+        {errorMessage}
         <ul className="form">
           <li>
             <label>Client name:</label>
             <input
               type="text"
-              className="in-text"
+              className={"in-text " + (this.state.nameError ? "error" : "")}
               name="name"
               onChange={this.handleChange}
-              required
+              value={this.state.name}
             />
           </li>
           <li>
@@ -66,6 +148,7 @@ class Modal extends React.Component {
               className="in-text"
               name="address"
               onChange={this.handleChange}
+              value={this.state.address}
             />
           </li>
           <li>
@@ -75,6 +158,7 @@ class Modal extends React.Component {
               className="in-text"
               name="city"
               onChange={this.handleChange}
+              value={this.state.city}
             />
           </li>
           <li>
@@ -84,11 +168,16 @@ class Modal extends React.Component {
               className="in-text"
               name="postalCode"
               onChange={this.handleChange}
+              value={this.state.postalCode}
             />
           </li>
           <li>
             <label>Country:</label>
-            <select onChange={this.handleChange} name="countryId">
+            <select
+              onChange={this.handleChange}
+              value={this.state.countryId}
+              name="countryId"
+            >
               {countries.map(country => (
                 <option key={country.id} value={country.id}>
                   {country.name}
@@ -98,15 +187,7 @@ class Modal extends React.Component {
           </li>
         </ul>
         <div className="buttons">
-          <div className="inner">
-            <a
-              href="javascript:;"
-              className="btn green"
-              onClick={this.handleSubmit}
-            >
-              Save
-            </a>
-          </div>
+          <div className="inner">{save}</div>
         </div>
       </div>
     );

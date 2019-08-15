@@ -46,24 +46,18 @@ export const getClients = () => {
   };
 };
 
-const _updateClient = (client, status) => ({
+const _updateClient = client => ({
   type: "UPDATE_CLIENT",
-  status,
   client
 });
 
 export const updateClient = client => {
   return dispatch => {
-    return axios
-      .put("clients", client)
-      .then(response => {
-        if (response.status === 204) {
-          dispatch(_updateClient(client, "success"));
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    return axios.put("clients", client).then(response => {
+      if (response.status === 204) {
+        dispatch(_updateClient(client));
+      }
+    });
   };
 };
 
@@ -96,9 +90,11 @@ export const filterClientsByLetter = letter => {
   return dispatch => {
     return axios.get("clients?letter=" + letter).then(response => {
       const clients = [];
-      response.data.forEach(client => {
-        clients.push(client);
-      });
+      if (response.data) {
+        response.data.forEach(client => {
+          clients.push(client);
+        });
+      }
       dispatch(_getClients(clients));
     });
   };
