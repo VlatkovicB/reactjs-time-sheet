@@ -10,6 +10,7 @@ class Modal extends React.Component {
       clickable: true,
       error: false,
       errorMessage: "",
+      nameErrorMessage: "",
       nameError: false,
       name: "",
       address: "",
@@ -42,8 +43,7 @@ class Modal extends React.Component {
     if (client.name.trim() === "") {
       this.setState({
         nameError: true,
-        error: true,
-        errorMessage: "Name must not be empty."
+        nameErrorMessage: "Name must not be empty."
       });
     } else {
       this.props
@@ -58,12 +58,14 @@ class Modal extends React.Component {
             if (error.response.status === 400) {
               this.setState({
                 nameError: true,
-                error: true,
-                errorMessage: "Name is not unique."
+                nameErrorMessage: "Name is not unique."
               });
             }
           } else if (error.request) {
-            console.log(error);
+            this.setState({
+              error: true,
+              errorMessage: error.message
+            });
           }
         });
     }
@@ -76,6 +78,7 @@ class Modal extends React.Component {
       nameError: false,
       error: false,
       errorMessage: "",
+      nameErrorMessage: "",
       name: "",
       address: "",
       city: "",
@@ -125,11 +128,21 @@ class Modal extends React.Component {
         Save
       </a>
     );
+    const nameError = this.state.nameError ? (
+      <li
+        style={{
+          color: "red"
+        }}
+      >
+        {this.state.nameErrorMessage}
+      </li>
+    ) : (
+      <li />
+    );
 
     return (
       <div>
         <h2>Create new client</h2>
-        {errorMessage}
         <ul className="form">
           <li>
             <label>Client name:</label>
@@ -141,6 +154,7 @@ class Modal extends React.Component {
               value={this.state.name}
             />
           </li>
+          {nameError}
           <li>
             <label>Address:</label>
             <input
@@ -185,6 +199,7 @@ class Modal extends React.Component {
               ))}
             </select>
           </li>
+          <li>{errorMessage}</li>
         </ul>
         <div className="buttons">
           <div className="inner">{save}</div>

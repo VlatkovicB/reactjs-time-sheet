@@ -16,6 +16,16 @@ class Filter extends React.Component {
     };
   }
 
+  static getDerivedStateFromProps(props, state) {
+    if (props.clients !== state.clients) {
+      return {
+        clients: props.clients
+      };
+    }
+    return null;
+  }
+
+  // Checks clients names if there are any starting with given Letter
   checkDisabled = letter => {
     const list = this.state.clients.filter(
       client => client.name.charAt(0).toLowerCase() === letter
@@ -23,10 +33,12 @@ class Filter extends React.Component {
     return list.length === 0;
   };
 
+  // Handles click on Letter, disables/enables active on selection
   handleClick = e => {
     let value = e.target.getAttribute("value");
     let selected = $("#letter" + value);
 
+    // If selected letter already has 'active' - removes it.
     if (!selected.hasClass("active")) {
       $(".alpha li").removeClass("active");
     }

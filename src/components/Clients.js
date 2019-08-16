@@ -15,7 +15,11 @@ import Modal from "./Modal";
 class Clients extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { searchAvailable: true, clients: this.props.clients };
+    this.state = {
+      searchAvailable: true,
+      clients: this.props.clients,
+      filterRefreshSwitch: true
+    };
     this.timer = null;
   }
 
@@ -28,8 +32,11 @@ class Clients extends React.Component {
     } else if (values.search) {
       this.props.filterClientsByKeyword(values.search);
     }
-    this.props.getClients();
+    this.props.getClients().then(() => {
+      this.updateFilter();
+    });
     this.props.getCountries();
+
     // Enables fancybox window for NewUser Modal
     window.jQuery(".new-member-popup").fancybox();
   }
@@ -39,6 +46,11 @@ class Clients extends React.Component {
       this.props.getClients();
     }
   }
+
+  updateFilter = () => {
+    this.setState({ filterRefreshSwitch: false });
+    this.setState({ filterRefreshSwitch: true });
+  };
 
   // Clears timer from handleSearchOnChange and instantly searches when enter is pressed
   searchClients = e => {
@@ -116,7 +128,9 @@ class Clients extends React.Component {
               <Modal />
             </div>
           </div>
+          {/* FIXME: Filter re-render */}
           <Filter />
+
           {/* Display clients */}
           <div className="accordion-wrap clients">{clients}</div>
           <div className="pagination">

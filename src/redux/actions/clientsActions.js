@@ -23,9 +23,15 @@ export const addClient = (
       countryId: clientData.countryId
     };
 
-    return axios.post("clients", client).then(response => {
-      dispatch(_addClient(response.data));
-    });
+    return axios
+      .post("clients", client)
+      .then(response => {
+        dispatch(_addClient(response.data));
+      })
+      .catch(error => {
+        console.log(error);
+        throw error;
+      });
   };
 };
 
@@ -53,11 +59,17 @@ const _updateClient = client => ({
 
 export const updateClient = client => {
   return dispatch => {
-    return axios.put("clients", client).then(response => {
-      if (response.status === 204) {
-        dispatch(_updateClient(client));
-      }
-    });
+    return axios
+      .put("clients", client)
+      .then(response => {
+        if (response.status === 204) {
+          dispatch(_updateClient(client));
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        throw error;
+      });
   };
 };
 

@@ -25,7 +25,7 @@ class Client extends React.Component {
   toggleVisible = () => {
     let clientWindow = $("#client" + this.state.id);
 
-    // Opens or closes client window, resets field on open
+    // Opens or closes client window
     if (!this.state.open) {
       clientWindow.slideDown();
       this.setState(prevState => ({
@@ -56,7 +56,6 @@ class Client extends React.Component {
         nameError: true
       });
     } else {
-      // TODO: CLICKABLE
       //checks if button is clickable
       if (this.state.clickable) {
         this.setState({ clickable: false });
@@ -67,7 +66,6 @@ class Client extends React.Component {
             this.toggleVisible();
           })
           .catch(error => {
-            // TODO: moved error handling
             if (error.response) {
               if (error.response.status === 409) {
                 this.setState({
@@ -98,18 +96,17 @@ class Client extends React.Component {
   // Handles delete when Delete is pressed
   handleDelete = () => {
     let clientWindow = $("#client" + this.state.id);
-    clientWindow.slideUp();
 
-    // checks if the button is clickable
-    if (this.state.clickable) {
-      this.setState({ clickable: false });
-      // time out to allow slide-up animation TODO: Any other way?
-      setTimeout(() => {
+    clientWindow.slideUp(350, () => {
+      // prevents spam clicks
+      if (this.state.clickable) {
+        this.setState({ clickable: false });
         this.props.deleteClient(this.state.id);
-      }, 400);
-    }
+      }
+    });
   };
 
+  // Reset fields to default values
   resetFields = () => {
     this.setState({
       clickable: true,
