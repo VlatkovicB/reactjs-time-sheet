@@ -29,6 +29,7 @@ export const addClient = (
         dispatch(_addClient(response.data));
       })
       .catch(error => {
+        // only if it hasn't got response
         console.log(error);
         throw error;
       });
